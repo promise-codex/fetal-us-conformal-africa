@@ -1,0 +1,135 @@
+Spanish LAC threshold q = 0.0065;  Spanish-tuned cut-off t = 0.9950
+
+=== 1. Calibration size (LAC, local threshold), mean over draws ===
+                n_cal  finite  coverage  coverage_p05  answered  wrong  wrong_max
+k cal_patients                                                                   
+0 2              7.20     0.0     1.000         1.000     0.000  0.000      0.000
+  3             10.80     1.0     0.935         0.821     0.703  0.014      0.078
+  4             14.34     1.0     0.940         0.821     0.692  0.012      0.078
+  5             17.88     1.0     0.953         0.821     0.686  0.012      0.078
+  all           22.19     1.0     0.964         0.869     0.668  0.009      0.058
+6 2              7.20     0.0     1.000         1.000     0.000  0.000      0.000
+  3             10.80     1.0     0.899         0.743     0.864  0.014      0.096
+  4             14.34     1.0     0.922         0.823     0.877  0.016      0.115
+  5             17.88     1.0     0.941         0.872     0.882  0.015      0.115
+  all           22.19     1.0     0.956         0.872     0.867  0.013      0.077
+
+Per country, k = 6:
+             coverage                             answered                             wrong_answer                            
+country       Algeria  Egypt  Ghana Malawi Uganda  Algeria  Egypt  Ghana Malawi Uganda      Algeria  Egypt  Ghana Malawi Uganda
+cal_patients                                                                                                                   
+2               1.000  1.000  1.000  1.000  1.000    0.000  0.000  0.000  0.000  0.000          0.0  0.000  0.000  0.000    0.0
+3               0.893  0.924  0.885  0.944  0.847    0.888  0.776  0.910  0.900  0.846          0.0  0.033  0.035  0.005    0.0
+4               0.924  0.934  0.905  0.955  0.892    0.916  0.768  0.938  0.872  0.891          0.0  0.036  0.044  0.001    0.0
+5               0.938  0.943  0.923  0.988  0.914    0.930  0.745  0.937  0.884  0.913          0.0  0.030  0.041  0.003    0.0
+all             0.962  0.956  0.940  1.000  0.921    0.934  0.714  0.942  0.827  0.919          0.0  0.023  0.041  0.000    0.0
+
+=== 2. Baselines on the same adjusted model, mean over countries and draws ===
+                      coverage  answered  wrong_answer  wrong_among_answered  wrong_answer_max_country
+k method                                                                                              
+0 APS_local              0.971     0.036         0.000                 0.000                     0.000
+  LAC_local              0.964     0.668         0.009                 0.012                     0.029
+  LAC_spain              0.575     0.591         0.015                 0.040                     0.077
+  cutoff_0.9               NaN     0.792         0.050                 0.074                     0.212
+  cutoff_spain_tuned       NaN     0.574         0.012                 0.033                     0.058
+2 APS_local              0.961     0.052         0.000                 0.000                     0.000
+  LAC_local              0.948     0.790         0.013                 0.016                     0.041
+  LAC_spain              0.783     0.799         0.016                 0.021                     0.049
+  cutoff_0.9               NaN     0.918         0.034                 0.038                     0.097
+  cutoff_spain_tuned       NaN     0.787         0.014                 0.019                     0.046
+6 APS_local              0.952     0.092         0.000                 0.000                     0.000
+  LAC_local              0.956     0.867         0.013                 0.014                     0.041
+  LAC_spain              0.825     0.834         0.009                 0.012                     0.023
+  cutoff_0.9               NaN     0.934         0.022                 0.024                     0.047
+  cutoff_spain_tuned       NaN     0.825         0.009                 0.011                     0.023
+
+Per country wrong answers, k = 0:
+country             Algeria  Egypt  Ghana  Malawi  Uganda
+method                                                   
+APS_local             0.000  0.000  0.000   0.000     0.0
+LAC_local             0.012  0.001  0.029   0.005     0.0
+LAC_spain             0.000  0.077  0.000   0.000     0.0
+cutoff_0.9            0.019  0.212  0.000   0.020     0.0
+cutoff_spain_tuned    0.000  0.058  0.000   0.000     0.0
+
+=== 3. Patient bootstrap (2000 resamples of test patients), 95% intervals ===
+
+ans  (k = 0)
+  Algeria  0.620  [0.563, 0.678]  (13 patients)
+  Egypt    0.178  [0.118, 0.236]  (13 patients)
+  Ghana    0.854  [0.729, 0.974]  (13 patients)
+  Malawi   0.781  [0.675, 0.871]  (14 patients)
+  Uganda   0.905  [0.796, 0.995]  (13 patients)
+  All      0.644  [0.567, 0.722]  (66 patients)
+
+correct  (k = 0)
+  Algeria  0.923  [0.827, 1.000]  (13 patients)
+  Egypt    0.635  [0.500, 0.769]  (13 patients)
+  Ghana    0.897  [0.769, 1.000]  (13 patients)
+  Malawi   0.922  [0.830, 1.000]  (14 patients)
+  Uganda   1.000  [1.000, 1.000]  (13 patients)
+  All      0.867  [0.813, 0.916]  (66 patients)
+
+cov  (k = 0)
+  Algeria  0.987  [0.965, 0.999]  (13 patients)
+  Egypt    0.991  [0.974, 1.000]  (13 patients)
+  Ghana    0.940  [0.883, 0.985]  (13 patients)
+  Malawi   0.995  [0.985, 1.000]  (14 patients)
+  Uganda   0.905  [0.788, 0.995]  (13 patients)
+  All      0.968  [0.945, 0.987]  (66 patients)
+
+wrong  (k = 0)
+  Algeria  0.012  [0.000, 0.034]  (13 patients)
+  Egypt    0.001  [0.000, 0.003]  (13 patients)
+  Ghana    0.029  [0.000, 0.081]  (13 patients)
+  Malawi   0.005  [0.000, 0.015]  (14 patients)
+  Uganda   0.000  [0.000, 0.000]  (13 patients)
+  All      0.009  [0.001, 0.020]  (66 patients)
+
+ans  (k = 6)
+  Algeria  0.934  [0.876, 0.983]  (13 patients)
+  Egypt    0.714  [0.609, 0.813]  (13 patients)
+  Ghana    0.942  [0.906, 0.977]  (13 patients)
+  Malawi   0.827  [0.694, 0.924]  (14 patients)
+  Uganda   0.919  [0.835, 0.986]  (13 patients)
+  All      0.861  [0.814, 0.904]  (66 patients)
+
+correct  (k = 6)
+  Algeria  0.974  [0.943, 1.000]  (13 patients)
+  Egypt    0.896  [0.828, 0.957]  (13 patients)
+  Ghana    0.927  [0.855, 0.987]  (13 patients)
+  Malawi   0.979  [0.937, 1.000]  (14 patients)
+  Uganda   0.981  [0.945, 1.000]  (13 patients)
+  All      0.951  [0.927, 0.973]  (66 patients)
+
+cov  (k = 6)
+  Algeria  0.962  [0.933, 0.986]  (13 patients)
+  Egypt    0.956  [0.907, 0.993]  (13 patients)
+  Ghana    0.940  [0.882, 0.987]  (13 patients)
+  Malawi   1.000  [1.000, 1.000]  (14 patients)
+  Uganda   0.921  [0.842, 0.985]  (13 patients)
+  All      0.958  [0.936, 0.977]  (66 patients)
+
+sys_ans  (k = 6)
+  Algeria  0.810  [0.687, 0.903]  (13 patients)
+  Egypt    0.652  [0.524, 0.768]  (13 patients)
+  Ghana    0.918  [0.872, 0.959]  (13 patients)
+  Malawi   0.728  [0.605, 0.830]  (14 patients)
+  Uganda   0.759  [0.667, 0.847]  (13 patients)
+  All      0.766  [0.709, 0.816]  (66 patients)
+
+sys_wrong  (k = 6)
+  Algeria  0.000  [0.000, 0.000]  (13 patients)
+  Egypt    0.023  [0.001, 0.058]  (13 patients)
+  Ghana    0.041  [0.003, 0.094]  (13 patients)
+  Malawi   0.000  [0.000, 0.000]  (14 patients)
+  Uganda   0.000  [0.000, 0.000]  (13 patients)
+  All      0.012  [0.003, 0.024]  (66 patients)
+
+wrong  (k = 6)
+  Algeria  0.000  [0.000, 0.000]  (13 patients)
+  Egypt    0.023  [0.001, 0.060]  (13 patients)
+  Ghana    0.041  [0.003, 0.094]  (13 patients)
+  Malawi   0.000  [0.000, 0.000]  (14 patients)
+  Uganda   0.000  [0.000, 0.000]  (13 patients)
+  All      0.012  [0.002, 0.024]  (66 patients)

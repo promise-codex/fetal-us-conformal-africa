@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite it as below."
+title: "Local conformal abstention for fetal ultrasound plane classification in five African countries"
+authors:
+  - family-names: Osunyemi
+    given-names: Promise Oluwaseyi
+    affiliation: "Department of Electronic and Electrical Engineering, Obafemi Awolowo University, Ile-Ife, Nigeria"
+license: MIT
+repository-code: "https://github.com/promise-codex/fetal-us-conformal-africa"
+date-released: 2026-11-13
+keywords:
+  - fetal ultrasound
+  - conformal prediction
+  - out-of-distribution detection
+  - domain shift
+  - low-resource settings
